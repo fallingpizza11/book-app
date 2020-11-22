@@ -12,14 +12,16 @@ class App extends Component {
     this.state = {
       books : [],
       loading : false,
-      input : 'harrypotter'
+      found : false,
+      input : 'harry potter'
     }
   }
 
   getBooks = async (url, query) => {
     let response = await fetch(url + query)
-    .catch(err => {throw err})
-
+    .catch(err => {
+      console.log(err);
+      throw err})
     return response.json()
   }
 
@@ -28,7 +30,7 @@ class App extends Component {
    */
   doClick = e => {
     e.preventDefault()
-    console.log(this.state.input)
+    this.submitQuery()
   }
   /**
    * @param {Event} e 
@@ -46,12 +48,12 @@ class App extends Component {
       this.setState({ books : data.items, loading : false})
     })
     .catch(err => {
+      this.setState({ loading : false})
       console.log('there has been an error: ', err);
     })
   }
 
   componentDidMount() {
-    //TODO: remove deafult case
     this.submitQuery()
   }
 
@@ -59,12 +61,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <h1>Find A Book!</h1>
           <form onSubmit={this.doClick}
                 onKeyDown={ event => event.key === "Enter" && this.submitQuery() }>
-            <input onChange={this.syncTextField} value={this.state.input} type="text"></input>
-            <input type="submit"></input>
+            <input onChange={this.syncTextField} value={this.state.input} id="input" type="text"></input>
+            <input id="submit-button" type="submit" value="Look for Book"></input>
           </form>
-          <BookResults books={this.state.books} />
+          <BookResults books={this.state.books} loading={this.state.loading} />
         </header>
       </div>
     );

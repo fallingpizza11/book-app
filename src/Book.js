@@ -1,6 +1,7 @@
 export default function Book(props) {
     const book = props.book
-
+    console.log(book)
+    
     let title = 'N/A'
     if(book.volumeInfo.hasOwnProperty('title')) {
         title = book.volumeInfo.title
@@ -25,13 +26,19 @@ export default function Book(props) {
     if(book.volumeInfo.hasOwnProperty('infoLink')) {
         bookURL = book.volumeInfo.infoLink
     }
-    console.log(book);
     //TODO: split categories nicely
     return(
-        <li id={props.aKey} key={props.aKey}>
-            <img src={imageURL} alt={title}></img>
-            <a href={bookURL}><p>{title}</p></a>
-            <p className="categories">{categories}</p>
+        <li>
+            <div className="book-upper">
+                <div className="book-image">
+                    <img src={imageURL} alt={title}></img>
+                </div>
+                <div className="title-category">
+                    <a href={bookURL}><p>{title}</p></a>
+                    <p className="categories">{categories}</p>
+                </div>
+            </div>
+
             <p className="description">{description}</p>
         </li>
     )

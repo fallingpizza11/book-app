@@ -19,22 +19,42 @@
   color: white;
 }
 
+.App #input {
+  flex: 2;
+  border: solid 1px;
+  border-radius: 5px;
+
+  background-color: var(--bg-color-one);
+  color: #fff;
+}
+
 .App #submit-button {
+  flex: 1;
   border: none;
+  border-radius: 5px;
 
   background: var(--button);
   color: var(--bg-color-one);
+  cursor: pointer;
 
-  padding: 0;
+}
+
+.App #submit-button, .App #input {
+  font-size: inherit;
+  padding: 5px;
+  margin: 0px 2vh;
+
 }
 
 .App #submit-button:active {
   background: var(--bg-color-two);
+  color: #ccc;
 }
 
 .App form {
   display: flex;
   justify-content: center;
+  padding: 2vh;
 }
 
 .App #list-head {
@@ -51,7 +71,7 @@
   background: var(--bg-color-three);
   border-radius: 5px;
 
-  padding: 0px 2vh;
+  padding: 2%;
   margin-bottom: 2vh;
   width: 70vh;
 }
@@ -67,10 +87,30 @@
 
 .categories {
   font-size: smaller;
-  color: #fff;
+  color: #abc;
   font-style: italic;
+}
+
+.description {
+  font-size: smaller;
 }
 
 .App #list-body img{
   padding-top: 2vh;
+}
+
+.App #loader {
+  max-width: 100%;
+}
+
+.App .book-upper {
+  display: flex;
+}
+
+.App .book-image {
+  flex: 1;
+}
+
+.App .title-category {
+  flex: 2;
 }
