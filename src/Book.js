@@ -1,6 +1,9 @@
+/**
+ * returns a book component.
+ * handles cases were a poperty of the book might not be set / valid.
+ */
 export default function Book(props) {
     const book = props.book
-    console.log(book)
     
     let title = 'N/A'
     if(book.volumeInfo.hasOwnProperty('title')) {
@@ -26,7 +29,6 @@ export default function Book(props) {
     if(book.volumeInfo.hasOwnProperty('infoLink')) {
         bookURL = book.volumeInfo.infoLink
     }
-    //TODO: split categories nicely
     return(
         <li>
             <div className="book-upper">

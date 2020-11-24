@@ -19,6 +19,10 @@
   color: white;
 }
 
+.App .App-header {
+  width: 65%;
+}
+
 .App #input {
   flex: 2;
   border: solid 1px;
@@ -66,14 +70,13 @@
 }
 
 .App #list-body li {
-  display: grid;
+  display: block;
 
   background: var(--bg-color-three);
   border-radius: 5px;
 
   padding: 2%;
   margin-bottom: 2vh;
-  width: 70vh;
 }
 
 #list-body li a {
